@@ -1,7 +1,13 @@
 # TOUR AND TRAVEL
 # OUTPUT
-![image](https://github.com/user-attachments/assets/61cbbe19-2530-42d7-8fbd-4f910e9d9ef6)
 
+![Screenshot 2025-02-04 230127](https://github.com/user-attachments/assets/5bbb16e3-b9b9-4ba7-a8d0-293b3db64768)
+![Screenshot 2025-02-04 230142](https://github.com/user-attachments/assets/fdc676d3-4342-467c-b120-910a68b2446f)
+![Screenshot 2025-02-04 230155](https://github.com/user-attachments/assets/c6934109-dc2d-4dcc-9cb5-66eae4a69215)
+![Screenshot 2025-02-04 230203](https://github.com/user-attachments/assets/ddb4ec77-2f3d-49de-bbb5-8a7ecb29bbd8)
+![Screenshot 2025-02-04 230217](https://github.com/user-attachments/assets/442c0754-330f-4a0d-b8e6-b2ec10e78205)
+![Screenshot 2025-02-04 230224](https://github.com/user-attachments/assets/f8c19181-810a-477d-9c24-9ba17e77acc6)
+![Screenshot 2025-02-04 230233](https://github.com/user-attachments/assets/463fa0af-662c-4a04-b6bd-cc7ec9472e63)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
