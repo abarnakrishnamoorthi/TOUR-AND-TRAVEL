@@ -1,4 +1,7 @@
-# PlaceMgt
+# TOUR AND TRAVEL
+# OUTPUT
+![image](https://github.com/user-attachments/assets/61cbbe19-2530-42d7-8fbd-4f910e9d9ef6)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
@@ -25,3 +28,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Contact Information
+For questions, please contact 
+- [GitHub](https://github.com/abarnakrishnamoorthi)
+- [LinkedIn](https://www.linkedin.com/in/abarna-krishnamoorthi-320391259/)
+
