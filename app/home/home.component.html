@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tour and Travel</title>
+    <style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #121010;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-image: url('https://www.shutterstock.com/image-vector/vector-illustration-cartoon-childish-background-260nw-1825716581.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    perspective: 1000px; /* Perspective applied to parent container */
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header h1, header p, .cta-button {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s; /* Smooth transform transition */
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    transform: rotateX(0deg); /* Initial rotation */
+}
+
+header h1:hover {
+    transform: rotateX(10deg); /* Rotate on hover */
+}
+
+header p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    transform: translateZ(20px); /* Add depth */
+}
+
+header p:hover {
+    transform: translateZ(40px); /* Increase depth on hover */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #470d48;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #4c165a;
+    transform: scale(1.05);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #020202;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.main-content {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.main-content h2 {
+    font-size: 36px;
+    color: #49175a;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.feature {
+    flex: 0 0 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature img {
+    margin-bottom: 20px;
+}
+
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #581857;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #090909;
+}
+
+.testimonials {
+    background-image: url('https://e0.pxfuel.com/wallpapers/136/681/desktop-wallpaper-brisbane-story-bridge-brisbane-river-night-purple-bridge-lighting-brisbane-cityscape-skyscrapers-australia-for-with-resolution-high-quality.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #f9f1f1;
+}
+
+.testimonials p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #f2eded;
+}
+
+.testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-style: italic;
+    color: #f8f2f2;
+}
+
+.testimonial-author {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #f2ecec;
+    text-transform: uppercase;
+}
+
+.newsletter {
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/647/14/395/bridge-photography-purple-city-night-wallpaper-preview.jpg');
+    color: #f7eeee;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.newsletter p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.newsletter input[type="email"] {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+    width: 300px;
+    max-width: 100%;
+}
+
+.newsletter input[type="submit"] {
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #f6efef;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.newsletter input[type="submit"]:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>WELCOME TO AK TOUR&TRAVEL:)</h1>
+            <p>Your gateway to unforgettable journeys</p>
+
+</div>
+</header>
+
+
+<div class="main-content">
+    <div class="container">
+        <h2>Discover Amazing Destinations</h2>
+        <p>Choose from a wide range of tours and explore the world's most breathtaking destinations.</p>
+        <div class="features">
+            <div class="feature">
+                <img src="https://img.icons8.com/ios-filled/50/000000/trekking.png" alt="City Exploration">
+                <h2>City Exploration</h2>
+                <p>Explore the vibrant streets and landmarks of our city tour. Discover hidden gems and cultural hotspots.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/ios-filled/50/000000/beach.png" alt="Nature Hiking">
+                <h2>Nature Hiking</h2>
+                <p>Embark on an adventure through lush forests and breathtaking landscapes. Connect with nature like never before.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/ios-filled/50/000000/trekking.png" alt="Adventure Trekking">
+                <h2>Adventure Trekking</h2>
+                <p>Embark on a thrilling journey through rugged terrain and challenging trails. Experience the thrill of adventure.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/ios-filled/50/000000/beach.png" alt="Beach Resort">
+                <h2>Beach Resort</h2>
+                <p>Relax and rejuvenate at our luxurious beach resort. Enjoy pristine beaches, crystal-clear waters, and world-class amenities.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/ios-filled/50/000000/mountain.png" alt="Mountain Expedition">
+                <h2>Mountain Expedition</h2>
+                <p>Embark on a challenging yet rewarding journey to conquer towering peaks and breathtaking landscapes.              </div>
+                    <div class="feature">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/cruise-ship.png" alt="Cruise Voyage">
+                        <h2>Cruise Voyage</h2>
+                        <p>Sail away on a luxurious cruise voyage to exotic destinations. Experience the ultimate relaxation and adventure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <div class="testimonial">
+                    <p>"Absolutely fantastic experience! The tours were well-organized, and the guides were knowledgeable. Can't wait for my next trip!"</p>
+                    <p class="testimonial-author">- Emily Johnson</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I've traveled with Tour and Travel multiple times, and they never disappoint. Their attention to detail and customer service are unmatched."</p>
+                    <p class="testimonial-author">- Mark Davis</p>
+                </div>
+            </div>
+        </div>
+        <div class="newsletter">
+            <div class="container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Stay updated with the latest tours, deals, and travel tips.</p>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 AK TOUR&TRAVEL:)</p>
+            </div>
+        </footer>
+
+        <script>
+            var currentSlide = 0;
+            var carouselImages = document.querySelector('.carousel-images');
+            var slides = carouselImages.querySelectorAll('img');
+            var totalSlides = slides.length;
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlide();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlide();
+            }
+
+            function updateSlide() {
+                carouselImages.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+            }
+        </script>
+    </body>
+    </html>
+

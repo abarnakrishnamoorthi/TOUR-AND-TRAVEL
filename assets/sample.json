@@ -1,0 +1,53 @@
+[
+    {
+      "trainingName": "Soft skills",
+      "formData": {
+        "name": "Dinesh",
+        "rollno": "22ITR023",
+        "branch": "Information Technology",
+        "year": "II",
+        "skill": "Front end"
+      }
+    },
+    {
+      "trainingName": "Core Training",
+      "formData": {
+        "name": "Giridharan",
+        "rollno": "22MCR098",
+        "branch": "Mechanical Engineering",
+        "year": "II",
+        "skill": "Machine Learning"
+      }
+    },
+    {
+      "trainingName": "Advanced Technical Training",
+      "formData": {
+        "name": "Gunal",
+        "rollno": "21ECR003",
+        "branch": "Electronics and Communication Engineering",
+        "year": "III",
+        "skill": "Networks"
+      }
+    },
+    {
+      "trainingName": "Problem Solving Skills",
+      "formData": {
+        "name": "Allwin",
+        "rollno": "22FTR045",
+        "branch": "Food Technology",
+        "year": "II",
+        "skill": "Java"
+      }
+    },
+    {
+      "trainingName": "Company Specific Training",
+      "formData": {
+        "name": "Sindhu",
+        "rollno": "20CSR90",
+        "branch": "Computer Science and Engineering",
+        "year": "IV",
+        "skill": "Full Stack"
+      }
+    }
+  ]
+  

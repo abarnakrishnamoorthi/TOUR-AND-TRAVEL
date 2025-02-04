@@ -1,0 +1,62 @@
+/* app.component.css */
+.navbar {
+    background-color: #4B0082; /* Indigo base color */
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 3D effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .left-corner-img,
+.navbar .right-corner-img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 15px;
+    position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+    background: linear-gradient(45deg, #7F00FF, #E100FF); /* Gradient for glitter effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle 3D effect */
+    text-align: center;
+    min-width: 100px; /* Ensures even button size */
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.nav-link:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(156, 39, 176, 0.5); /* Glow effect */
+}
+
+.nav-link:hover::before {
+    opacity: 1; /* Shine effect */
+    transform: scale(1.1); /* Slight scale effect */
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details</title>
+    <style>
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210427/pngtree-vector-crystal-purple-background-image_653523.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    perspective: 1000px; /* Adds perspective for 3D effects */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: linear-gradient(to bottom, #8e44ad, #9b59b6, #d684d3, #f3e5f5);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform-style: preserve-3d; /* Enables 3D effects */
+}
+
+li:hover {
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05); /* Adds a 3D tilt effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #333;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.tour-description {
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+ul ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    transform: perspective(500px) rotateX(0deg) rotateY(0deg); /* Adds initial 3D perspective */
+}
+
+.add-to-cart:hover {
+    background-color: #3498db;
+    transform: perspective(500px) rotateX(-5deg) rotateY(5deg); /* Adds a 3D tilt effect on hover */
+}
+
+.cart-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Tours</h1>
+        <ul>
+            <li>
+                <h2>City Exploration</h2>
+                <p class="tour-description">Explore the vibrant streets and landmarks of our city tour. Discover hidden gems and cultural hotspots.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Famous landmarks</li>
+                    <li>Cultural hotspots</li>
+                    <li>Local markets</li>
+                    <li>Historical sites</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 1 day</p>
+                <p>Price: $100 per person</p>
+                <p>Includes: Guided tour, transportation, lunch</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            
+            </li>
+            <li>
+                <h2>Nature Hiking</h2>
+                <p class="tour-description">Embark on an adventure through lush forests and breathtaking landscapes. Connect with nature like never before.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Breathtaking landscapes</li>
+                    <li>Tranquil trails</li>
+                    <li>Wildlife encounters</li>
+                    <li>Scenic viewpoints</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 2 days</p>
+                <p>Price: $200 per person</p>
+                <p>Includes: Guided hikes, camping gear, meals</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+           
+            </li>
+            <li>
+                <h2>Historical Sites</h2>
+                <p class="tour-description">Step back in time and explore ancient ruins, monuments, and landmarks that hold rich historical significance.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Ancient ruins</li>
+                    <li>Historical monuments</li>
+                    <li>Museum visits</li>
+                    <li>Cultural insights</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 1 day</p>
+                <p>Price: $150 per person</p>
+                <p>Includes: Guided tours, entrance fees, transportation</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+           
+            </li>
+            <li>
+                <h2>Adventure Trekking</h2>
+                <p class="tour-description">Embark on a thrilling journey through rugged terrain and challenging trails. Experience the thrill of adventure.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Rugged terrain</li>
+                    <li>Challenging trails</li>
+                    <li>Summit views</li>
+                    <li>Wilderness camping</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 3 days</p>
+                <p>Price: $300 per person</p>
+                <p>Includes: Guided trek, camping equipment, meals</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+
+            </li>
+            <li>
+                <h2>Cultural Immersion</h2>
+                <p class="tour-description">Immerse yourself in the local culture, traditions, and customs. Experience the essence of our destination firsthand.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Local traditions</li>
+                    <li>Cultural activities</li>
+                    <li>Traditional cuisine</li>
+                    <li>Art and crafts</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 2 days</p>
+                <p>Price: $250 per person</p>
+                <p>Includes: Cultural activities, meals, accommodation</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+       
+            </li>
+            <li>
+                <h2>Beach Resort</h2>
+                <p class="tour-description">Relax and rejuvenate at our luxurious beach resort. Enjoy pristine beaches, crystal-clear waters, and world-class amenities.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Pristine beaches</li>
+                    <li>Luxury accommodation</li>
+                    <li>Water activities</li>
+                    <li>Relaxation and spa</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 2 days</p>
+                <p>Price: $350 per person</p>
+                <p>Includes: Accommodation, meals, spa treatments</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+              
+            </li>
+            <li>
+                <h2>Mountain Expedition</h2>
+                <p class="tour-description">Conquer the peaks and enjoy stunning vistas with our mountain expedition. Perfect for thrill-seekers and nature lovers.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Stunning vistas</li>
+                    <li>Challenging climbs</li>
+                    <li>Wildlife spotting</li>
+                    <li>Camping under the stars</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 4 days</p>
+                <p>Price: $400 per person</p>
+                <p>Includes: Guided climbs, camping equipment, meals</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+               
+            </li>
+            <li>
+                <h2>Cruise Voyage</h2>
+                <p class="tour-description">Set sail on a luxurious cruise and explore multiple destinations. Enjoy onboard entertainment and gourmet dining.</p>
+                <h3>Highlights:</h3>
+                <ul>
+                    <li>Multiple destinations</li>
+                    <li>Onboard entertainment</li>
+                    <li>Gourmet dining</li>
+                    <li>Relaxation and luxury</li>
+                </ul>
+                <h3>Details:</h3>
+                <p>Duration: 7 days</p>
+                <p>Price: $1500 per person</p>
+                <p>Includes: Accommodation, meals, entertainment</p>
+                <h3>Additional Information:</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                <button class="add-to-cart" onclick="addToCart('Cruise Voyage')">Add to Cart</button>
+            </li>
+        </ul>
+       
+    </div>
+
+    <script>
+        function addToCart(tourName) {
+            var message = tourName + " has been added to your cart!";
+            var cartMessage = document.getElementById('cart-message');
+            cartMessage.textContent = message;
+            cartMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

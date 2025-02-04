@@ -1,0 +1,23 @@
+<h2 id="tourName"></h2>
+<table id="bookingTable">
+    <thead>
+        <tr>
+            <th>Tour Name</th>
+            <th>Name</th>
+            <th>Passport No</th>
+            <th>Destination</th>
+            <th>Duration</th>
+            <th>Special Requests</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of data">
+            <td>{{ booking.tourName }}</td>
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.passportNo }}</td>
+            <td>{{ booking.destination }}</td>
+            <td>{{ booking.duration }}</td>
+            <td>{{ booking.specialRequests }}</td>
+        </tr>
+    </tbody>
+</table>

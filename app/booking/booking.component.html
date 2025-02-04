@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Booking</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: linear-gradient(to bottom right, #7e57c2, #d500f9, #f06292, #f8bbd0, #ffffff);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus, input[type="date"]:focus, input[type="number"]:focus {
+            border-color: #7e57c2;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .success-message {
+            color: #28a745;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Your Tour</h1>
+        <form id="bookingForm" onsubmit="return validateForm()">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+            <div id="fullnameError" class="error-message"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+            <div id="emailError" class="error-message"></div>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" required>
+            <div id="mobileError" class="error-message"></div>
+
+            <label for="tour">Select Tour</label>
+            <select id="tour" name="tour" onchange="calculatePayment()" required>
+                <option value="">Select a tour</option>
+                <option value="City Exploration: $50 per person">City Exploration</option>
+                <option value="Nature Hiking: $80 per person">Nature Hiking</option>
+                <option value="Historical Sites: $60 per person">Historical Sites</option>
+                <option value="Adventure Trekking: $100 per person">Adventure Trekking</option>
+                <option value="Cultural Immersion: $70 per person">Cultural Immersion</option>
+                <option value="Beach Resort: $120 per person">Beach Resort</option>
+                <option value="Mountain Expedition: $150 per person">Mountain Expedition</option>
+                <option value="Cruise Voyage: $200 per person">Cruise Voyage</option>
+            </select>
+            <div id="tourError" class="error-message"></div>
+
+            <label for="date">Tour Date</label>
+            <input type="date" id="date" name="date" required>
+            <div id="dateError" class="error-message"></div>
+
+            <label for="stay">Staying Details</label>
+            <select id="stay" name="stay" required>
+                <option value="">Select staying option</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Hostel">Hostel</option>
+                <option value="Guest House">Guest House</option>
+                <option value="Camping">Camping</option>
+            </select>
+            <div id="stayError" class="error-message"></div>
+
+            <label for="people">Number of People Staying</label>
+            <input type="number" id="people" name="people" min="1" placeholder="Stay count" required>
+            <div id="peopleError" class="error-message"></div>
+
+            <label for="tourPayment">Tour Payment</label>
+            <input type="number" id="tourPayment" name="tourPayment" placeholder="Enter tour payment" required readonly>
+            <div id="tourPaymentError" class="error-message"></div>
+
+            <label for="stayPayment">Stay Payment</label>
+            <input type="number" id="stayPayment" name="stayPayment" placeholder="Enter stay payment" required>
+            <div id="stayPaymentError" class="error-message"></div>
+
+            <input type="submit" value="Book Now">
+        </form>
+        <div id="successMessage" class="success-message"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var tour = document.getElementById("tour").value;
+            var date = document.getElementById("date").value;
+            var stay = document.getElementById("stay").value;
+            var people = document.getElementById("people").value;
+            var tourPayment = document.getElementById("tourPayment").value;
+            var stayPayment = document.getElementById("stayPayment").value;
+            var isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("fullnameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("mobileError").innerHTML = "";
+            document.getElementById("tourError").innerHTML = "";
+            document.getElementById("dateError").innerHTML = "";
+            document.getElementById("stayError").innerHTML = "";
+            document.getElementById("peopleError").innerHTML = "";
+            document.getElementById("tourPaymentError").innerHTML = "";
+            document.getElementById("stayPaymentError").innerHTML = "";
+
+            if (fullname.trim() == "") {
+                document.getElementById("fullnameError").innerHTML = "Please enter your full name";
+                isValid = false;
+            }
+
+            if (email.trim() == "") {
+                document.getElementById("emailError").innerHTML = "Please enter your email";
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                isValid = false;
+            }
+
+            if (mobile.trim() == "") {
+                document.getElementById("mobileError").innerHTML = "Please enter your mobile number";
+                isValid = false;
+            } else if (!isValidMobile(mobile)) {
+                document.getElementById("mobileError").innerHTML = "Please enter a valid mobile number";
+                isValid = false;
+            }
+
+            if (tour.trim() == "") {
+                document.getElementById("tourError").innerHTML = "Please select a tour";
+                isValid = false;
+            }
+
+            if (date.trim() == "") {
+                document.getElementById("dateError").innerHTML = "Please select a tour date";
+                isValid = false;
+            }
+
+            if (stay.trim() == "") {
+                document.getElementById("stayError").innerHTML = "Please select staying option";
+                isValid = false;
+            }
+
+            if (people.trim() == "" || people < 1) {
+                document.getElementById("peopleError").innerHTML = "Please enter number of people staying";
+                isValid = false;
+            }
+
+            if (tourPayment.trim() == "") {
+                document.getElementById("tourPaymentError").innerHTML = "Please enter tour payment amount";
+                isValid = false;
+            }
+
+            if (stayPayment.trim() == "") {
+                document.getElementById("stayPaymentError").innerHTML = "Please enter stay payment amount";
+                isValid = false;
+            }
+
+            if (isValid) {
+                var totalPayment = parseInt(tourPayment) + parseInt(stayPayment);
+                document.getElementById("successMessage").innerHTML = `
+                    Booking successful!<br>
+                    <strong>Name:</strong> ${fullname}<br>
+                    <strong>Email:</strong> ${email}<br>
+                    <strong>Mobile:</strong> ${mobile}<br>
+                    <strong>Tour:</strong> ${tour}<br>
+                    <strong>Date:</strong> ${date}<br>
+                    <strong>Stay:</strong> ${stay}<br>
+                    <strong>Number of People Staying:</strong> ${people}<br>
+                    <strong>Total Payment:</strong> $${totalPayment}
+                `;
+                document.getElementById("bookingForm").reset();
+            }
+
+            return false; // Prevent form submission
+        }
+
+        function isValidEmail(email) {
+            var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return pattern.test(email);
+        }
+
+        function isValidMobile(mobile) {
+            var pattern = /^[0-9]{10}$/;
+            return pattern.test(mobile);
+        }
+
+        function calculatePayment() {
+            var tour = document.getElementById("tour").value;
+            var tourPrice = tour.match(/\d+/)[0]; // Extract the price from the tour option
+            document.getElementById("tourPayment").value = tourPrice; // Set the tour payment field value to the tour price
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Account</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: linear-gradient(to bottom right, #7e57c2, #d500f9, #f06292, #f8bbd0, #ffffff);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus, select:focus, input[type="date"]:focus, input[type="number"]:focus {
+            border-color: #7e57c2;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .success-message {
+            color: #28a745;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register Your Account</h1>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+            <div id="fullnameError" class="error-message"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+            <div id="emailError" class="error-message"></div>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" required>
+            <div id="mobileError" class="error-message"></div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div id="passwordError" class="error-message"></div>
+
+            <input type="submit" value="Register">
+        </form>
+        <div id="successMessage" class="success-message"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var fullname = document.getElementById("fullname").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var password = document.getElementById("password").value;
+            var isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("fullnameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("mobileError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+
+            if (fullname.trim() === "") {
+                document.getElementById("fullnameError").innerHTML = "Please enter your full name";
+                isValid = false;
+            }
+
+            if (email.trim() === "") {
+                document.getElementById("emailError").innerHTML = "Please enter your email";
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                isValid = false;
+            }
+
+            if (mobile.trim() === "") {
+                document.getElementById("mobileError").innerHTML = "Please enter your mobile number";
+                isValid = false;
+            } else if (!isValidMobile(mobile)) {
+                document.getElementById("mobileError").innerHTML = "Please enter a valid mobile number";
+                isValid = false;
+            }
+
+            if (password.trim() === "") {
+                document.getElementById("passwordError").innerHTML = "Please enter your password";
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById("successMessage").innerHTML = `
+                    Registration successful!<br>
+                    <strong>Name:</strong> ${fullname}<br>
+                    <strong>Email:</strong> ${email}<br>
+                    <strong>Mobile:</strong> ${mobile}
+                `;
+                document.getElementById("registerForm").reset();
+            }
+
+            return false; // Prevent form submission
+        }
+
+        function isValidEmail(email) {
+            var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return pattern.test(email);
+        }
+
+        function isValidMobile(mobile) {
+            var pattern = /^[0-9]{10}$/;
+            return pattern.test(mobile);
+        }
+    </script>
+</body>
+</html>
